@@ -66,7 +66,7 @@ function process() {
 }
 
 /**
- * Cria tabela com base em um parametro JSON
+ * Create table with JSON data
  * @param {} data
  */
 function loadTable(data) {
@@ -75,6 +75,7 @@ function loadTable(data) {
     if (xmlHttp.status == 200) {
       var col = [];
 
+      // Extract keys for table headers.
       for (var i = 0; i < data.length; i++) {
         for (var key in data[i]) {
           if (col.indexOf(key) === -1) {
@@ -82,9 +83,11 @@ function loadTable(data) {
           }
         }
       }
-      // Extrair os atributos (keys) para criar table headers
+
+      // Create the table
       var table = document.createElement("table");
-      // Criar table header row com os dados estraidos
+
+      // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
       var tr = table.insertRow(-1); // TABLE ROW.
 
       for (var i = 0; i < col.length; i++) {
@@ -93,7 +96,7 @@ function loadTable(data) {
         tr.appendChild(th);
       }
 
-      // Adicionar dados JSON para a tabela
+      // Add JSON data to table as rows
       for (var i = 0; i < data.length; i++) {
         tr = table.insertRow(-1);
 
@@ -103,7 +106,7 @@ function loadTable(data) {
         }
       }
 
-      // Adicionar tabela para um container
+      // Add created table with data from JSON to an html container
       var divContainer = document.getElementById("tabela");
       divContainer.innerHTML = "";
       divContainer.appendChild(table);
