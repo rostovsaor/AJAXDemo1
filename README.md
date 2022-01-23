@@ -1,6 +1,6 @@
-Simple AJAX Example
+## Simple AJAX Example
 
-###What it does
+### What it does
 Pulls data from MySQL database and builds table using JavaScript
 HTML file has a simple functionality to add more data to the database then automatically updates the table and without reloading the whole page.
 
